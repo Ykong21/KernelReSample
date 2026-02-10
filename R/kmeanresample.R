@@ -144,8 +144,7 @@ kmeanresample <- function(N, n, B, x, y, x0s, y0s, lambda0) {
   for (e in 1:(dim(x0s)[1])) {
     # Time Estimation
     for (b in 1:B) {
-      # Keep original sampling line unchanged
-      XIND <- sample(c(1:N), n, prob = finalprobs[, e])
+      XIND <- sample(c(1:N), n, prob = finalprobs[, e], replace = TRUE)
       xsub <- x[XIND, ]
       ysub <- y[XIND]
       rho_sub <- det(stats::cov(xsub))
