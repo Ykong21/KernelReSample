@@ -6,7 +6,7 @@
 #' (3) tune lambda (and optionally bw_scale) on centers by BIC,
 #' (4) for each test point x0: compute center weights and induce train-point probs.
 #'
-#' This function does NOT fit any estimator (no KRR / no FALKON). It returns
+#' This function does NOT fit any estimato. It returns
 #' sampling probabilities (and optionally centers-level weights) that can be
 #' used by any downstream estimator.
 #'
