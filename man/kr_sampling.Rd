@@ -95,7 +95,7 @@ Implements ONLY the sampling (selection) part used in \code{kr_boot_plus}:
 (4) for each test point x0: compute center weights and induce train-point probs.
 }
 \details{
-This function does NOT fit any estimator (no KRR / no FALKON). It returns
+This function does NOT fit any estimato. It returns
 sampling probabilities (and optionally centers-level weights) that can be
 used by any downstream estimator.
 }

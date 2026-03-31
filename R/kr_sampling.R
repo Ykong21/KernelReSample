@@ -271,7 +271,7 @@ kr_sampling <- function(
   }
 
   # ---------------------------
-  # Center-stage tuning via BIC (copied)
+  # Center-stage tuning via BIC
   # ---------------------------
   tune_lambda_bw_centers <- function(centers, ystar, base_bw, lambda_grid, scales, joint) {
     best <- list(score = Inf, lam = lambda_grid[1], bw = base_bw)
@@ -315,13 +315,13 @@ kr_sampling <- function(
   if (verbose) message("[kr_sampling] center labels (cluster means)...")
   t0 <- proc.time()
 
-  counts <- tabulate(idx, nbins = n_centers)
-  sumy <- tapply(y, idx, sum)
-  sumy <- as.numeric(sumy)
+  k <- n_centers
+  cnt  <- tabulate(idx, nbins = k)
+  sumy <- as.numeric(tapply(y, factor(idx, levels = 1:k), sum))
   sumy[is.na(sumy)] <- 0
-  cnt <- counts
-  cnt[cnt == 0] <- 1
-  ystar <- sumy / cnt
+  cnt2 <- cnt; cnt2[cnt2 == 0] <- 1
+  ystar <- sumy / cnt2
+
 
   timing$ystar <- (proc.time() - t0)[3]
 

@@ -2,4 +2,5 @@
 
 export(kr_boot)
 export(kr_boot_plus)
+export(kr_full)
 export(kr_sampling)
